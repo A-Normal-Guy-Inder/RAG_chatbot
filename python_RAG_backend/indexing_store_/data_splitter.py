@@ -29,7 +29,7 @@ def is_good_chunk(text: str) -> bool:
         return False
     
     # 5️⃣ Drop code-like or overly formatted chunks (usually noise)
-    if text.count("{") > 2 or text.count("[") > 5:
+    if text.count("{") > 5 or text.count("[") > 10:
         return False
 
     return True

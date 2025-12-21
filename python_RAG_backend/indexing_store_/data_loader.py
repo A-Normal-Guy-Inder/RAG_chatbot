@@ -279,3 +279,4 @@ def load_docs(use_cache: bool = False):
     print(f"📚 Total documents extracted: {len(docs)}")
 
     return docs
+

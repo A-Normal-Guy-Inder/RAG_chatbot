@@ -30,6 +30,3 @@ class Chat(Resource):
         }, 200
 
 api.add_resource(Chat, "/chat")
-
-if __name__ == "__main__":
-    app.run(debug=True)
