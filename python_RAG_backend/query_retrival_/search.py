@@ -59,7 +59,6 @@ def ask_question(query: str, k: int = 5, threshold: float = 20.0) -> str:
 
 
 if __name__ == "__main__":
-    answer = ask_question(
-        "How does tata motors supports skill development and learning?"
-    )
+    question = input("Enter the question: ")
+    answer = ask_question(question)
     print(answer)
