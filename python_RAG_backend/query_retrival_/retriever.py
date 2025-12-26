@@ -14,7 +14,7 @@ vector_store = Chroma(
     persist_directory=str(PERSIST_DIR),
 )
 
-def retrieve_top_k_with_threshold(query: str, k: int = 5, threshold: float = 70.0):
+def retrieve_top_k_with_threshold(query: str, k: int = 5, threshold: float = 20.0):
     """
     Retrieve top-k documents with similarity >= threshold (%)
     Returns: List of Document objects with similarity score added to metadata

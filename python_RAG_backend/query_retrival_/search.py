@@ -1,17 +1,16 @@
-from langchain_groq import ChatGroq
+from langchain_ollama import ChatOllama
 from dotenv import load_dotenv
 import os
 
-from .retriever import retrieve_top_k_with_threshold
-from .response_generator import ResponseGenerator
+from retriever import retrieve_top_k_with_threshold
+from response_generator import ResponseGenerator
 
 load_dotenv()
 
-llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
+llm = ChatOllama(
+    model="llama3.2:3b",
     temperature=0.2,
-    max_tokens=1024,
-    api_key=os.getenv("GROQ_API_KEY"),
+    num_predict=2048,
 )
 
 response_generator = ResponseGenerator(llm)
