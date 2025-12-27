@@ -1,4 +1,5 @@
 from langchain_ollama import ChatOllama
+from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import os
 
@@ -7,11 +8,18 @@ from response_generator import ResponseGenerator
 
 load_dotenv()
 
-llm = ChatOllama(
-    model="llama3.2:3b",
-    temperature=0.2,
-    num_predict=2048,
-)
+# llm = ChatOllama(
+#     model="llama3.2:3b",
+#     temperature=0.2,
+#     num_predict=2048,
+# )
+
+llm = ChatGroq(
+       model = 'llama-3.3-70b-versatile',
+       temperature= 0.3,
+       max_tokens=2048,
+       api_key = os.getenv("GROQ_API_KEY")
+    )
 
 response_generator = ResponseGenerator(llm)
 
