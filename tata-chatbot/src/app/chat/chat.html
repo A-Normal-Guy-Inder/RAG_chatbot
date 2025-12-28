@@ -1,0 +1,15 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <img src="pngegg.png" alt="Tata Motors Logo" class="tata-logo">
+    <h2>Tata Motors Chatbot</h2>
+  </div>
+  <div class="chat-messages" #chatMessagesContainer>
+    <div *ngFor="let message of messages" class="message" [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+      {{ message.text }}
+    </div>
+  </div>
+  <div class="chat-input">
+    <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" placeholder="Type your message...">
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
