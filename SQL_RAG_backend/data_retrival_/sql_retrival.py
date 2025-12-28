@@ -1,8 +1,8 @@
 from langchain_community.agent_toolkits import SQLDatabaseToolkit
 from langchain_community.agent_toolkits import create_sql_agent
-from database_config import data_config
-from LLMs import ollama3_2_3bmodel, grokllm, ollamaph3_mini
-from graphTools import GraphGenerator,GraphExplainer
+from .database_config import data_config
+from .LLMs import ollama3_2_3bmodel, grokllm, ollamaph3_mini
+from .graphTools import GraphGenerator,GraphExplainer
 from dotenv import load_dotenv
 load_dotenv()
 
