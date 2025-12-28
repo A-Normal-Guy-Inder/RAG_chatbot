@@ -1,10 +1,13 @@
 from langchain_community.utilities import SQLDatabase
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
-host = 'localhost'                                                                                                                  
-port = '5432'
-username = 'postgres'
-password = 'root'
-database_schema = 'Chatbot'
+username = os.getenv("DB_USER")
+password = os.getenv("DB_PASS")
+host = os.getenv("DB_HOST")
+port = os.getenv("DB_PORT")
+database_schema = os.getenv("DB_NAME")
 mysql_uri = f"postgresql+psycopg2://{username}:{password}@{host}:{port}/{database_schema}"
 
 
