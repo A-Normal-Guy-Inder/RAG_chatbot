@@ -1,17 +1,17 @@
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
+from langchain_postgres import PGVector
+from ..database_config import getSqlUrl
 from pathlib import Path
 
-PERSIST_DIR = Path(__file__).parent.parent / "data" / "chroma_langchain_db"
 
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-mpnet-base-v2"
 )
 
-vector_store = Chroma(
+vector_store = PGVector(
     collection_name="chatbot",
-    embedding_function=embeddings,
-    persist_directory=str(PERSIST_DIR),
+    embeddings=embeddings,
+    connection=getSqlUrl(),
 )
 
 def retrieve_top_k_with_threshold(query: str, k: int = 5, threshold: float = 20.0):

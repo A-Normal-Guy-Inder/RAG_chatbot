@@ -1,6 +1,6 @@
 from langchain_community.agent_toolkits import SQLDatabaseToolkit
 from langchain_community.agent_toolkits import create_sql_agent
-from .database_config import data_config
+from ..database_config import data_config
 from .LLMs import ollama3_2_3bmodel, grokllm, ollamaph3_mini
 from .graphTools import GraphGenerator,GraphExplainer
 from dotenv import load_dotenv
@@ -19,8 +19,7 @@ def data_retriever(question : str):
     )
 
     sqlAnswer= agentdb.invoke(question)
-    print(sqlAnswer)
-    
+
     visualizer = GraphGenerator(model)
     graphtext = visualizer.generate_graph(sqlAnswer)
     if not graphtext:
