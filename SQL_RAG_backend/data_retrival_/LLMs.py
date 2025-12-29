@@ -16,6 +16,7 @@ def ollamaph3_mini():
         temperature= 0.3,
         num_predict= 2048
     )
+    return llm
 
 def grokllm():
     llm = ChatGroq(

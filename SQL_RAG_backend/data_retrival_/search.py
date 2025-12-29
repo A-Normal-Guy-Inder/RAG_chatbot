@@ -1,8 +1,4 @@
-from langchain_ollama import ChatOllama
-from langchain_groq import ChatGroq
 from dotenv import load_dotenv
-import os
-
 from .retriever import retrieve_top_k_with_threshold
 from .response_generator import ResponseGenerator
 from .LLMs import grokllm, ollama3_2_3bmodel

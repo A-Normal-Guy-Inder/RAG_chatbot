@@ -1,7 +1,6 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_postgres import PGVector
 from ..database_config import getSqlUrl
-from pathlib import Path
 import math
 
 # Initialize embeddings

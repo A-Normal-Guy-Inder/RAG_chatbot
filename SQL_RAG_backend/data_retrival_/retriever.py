@@ -1,8 +1,6 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_postgres import PGVector
 from ..database_config import getSqlUrl
-from pathlib import Path
-
 
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-mpnet-base-v2"
