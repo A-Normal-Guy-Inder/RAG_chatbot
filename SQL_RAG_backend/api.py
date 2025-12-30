@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
 
-from data_retrival_.search import ask_question
-from data_retrival_.sql_retrival import data_retriever
+from .data_retrival_.search import ask_question
+from .data_retrival_.sql_retrival import data_retriever
 from flask_cors import CORS
 
 

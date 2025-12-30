@@ -8,7 +8,7 @@ load_dotenv()
 
 def data_retriever(question : str):
     db=data_config()
-    model=grokllm()
+    model=ollama3_2_3bmodel()
 
     toolkit = SQLDatabaseToolkit(db=db, llm=model)
 
