@@ -9,6 +9,9 @@ def embed_store(chunks, batch_size=50):
     if not chunks:
         print("❌ ERROR: No chunks provided")
         return {"success": False, "error": "No chunks provided"}
+    
+    vector_store.delete_collection()
+    vector_store.create_collection()
 
     total = len(chunks)
     total_batches = math.ceil(total / batch_size)
