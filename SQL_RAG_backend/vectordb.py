@@ -4,7 +4,7 @@ from .database_config import getSqlUrl
 
 def get_vectordb():
     embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-mpnet-base-v2"
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
     vector_store = PGVector(
         collection_name="chatbot",
