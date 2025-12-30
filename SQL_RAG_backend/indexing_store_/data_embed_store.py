@@ -1,21 +1,8 @@
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_postgres import PGVector
-from ..database_config import getSqlUrl
+from ..vectordb import get_vectordb
 import math
 
-# Initialize embeddings
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-mpnet-base-v2"
-)
-
-# Initialize vector store
-vector_store = PGVector(
-    collection_name="chatbot",
-    embeddings=embeddings,
-    connection=getSqlUrl(),
-)
-
 def embed_store(chunks, batch_size=50):
+    vector_store = get_vectordb()
     """
     Add chunks to vector store with progress printing.
     """
@@ -46,16 +33,12 @@ def embed_store(chunks, batch_size=50):
 
             print(f"   ✅ Stored {added}/{total} chunks\n")
 
-        # Verify storage
-        stored_count = vector_store._collection.count()
 
         print("🎉 Embedding completed successfully!")
-        print(f"📊 Total stored vectors: {stored_count}")
 
         return {
             "success": True,
             "chunks_added": added,
-            "total_stored": stored_count,
         }
 
     except Exception as e:

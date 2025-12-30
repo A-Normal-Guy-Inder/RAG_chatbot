@@ -26,7 +26,7 @@ def load_pdfs():
         loader = UnstructuredPDFLoader(
             pdf_path,
             strategy="hi_res",
-            extract_images_in_pdf=True
+            extract_images_in_pdf=False
         )
 
         text_docs = loader.load()

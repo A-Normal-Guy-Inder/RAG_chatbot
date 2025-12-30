@@ -5,7 +5,7 @@ from .LLMs import grokllm, ollama3_2_3bmodel
 
 load_dotenv()
 
-llm = grokllm
+llm = ollama3_2_3bmodel
 
 response_generator = ResponseGenerator(llm)
 

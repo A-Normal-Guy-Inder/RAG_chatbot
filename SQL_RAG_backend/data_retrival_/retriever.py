@@ -1,18 +1,7 @@
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_postgres import PGVector
-from ..database_config import getSqlUrl
-
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-mpnet-base-v2"
-)
-
-vector_store = PGVector(
-    collection_name="chatbot",
-    embeddings=embeddings,
-    connection=getSqlUrl(),
-)
+from ..vectordb import get_vectordb
 
 def retrieve_top_k_with_threshold(query: str, k: int = 5, threshold: float = 20.0):
+    vector_store = get_vectordb()
     """
     Retrieve top-k documents with similarity >= threshold (%)
     Returns: List of Document objects with similarity score added to metadata
