@@ -22,10 +22,12 @@ def data_retriever(question : str):
 
     visualizer = GraphGenerator(model)
     graphtext = visualizer.generate_graph(sqlAnswer)
-    if not graphtext:
+    img_base64 = visualizer.generate_plot_base64(graphtext)
+    
+    if not img_base64:
         return (None,None)
     
     explain = GraphExplainer(model)
     explain_text = explain.strip_plotting_lines(sqlAnswer['output'])
 
-    return (explain.generate_explanation(explain_text),visualizer.generate_plot_base64(graphtext))
+    return (explain.generate_explanation(explain_text),img_base64)

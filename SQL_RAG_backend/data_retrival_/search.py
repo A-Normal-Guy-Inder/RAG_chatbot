@@ -29,7 +29,7 @@ def ask_question(query: str, k: int = 5, threshold: float = 20.0) -> str:
     )
 
     if not results:
-        return "I couldn't find sufficiently relevant information to answer your question."
+        return "I don't have enough information from the provided sources to answer this question."
 
     # Build context from retrieved documents
     context_parts = []
@@ -45,13 +45,12 @@ def ask_question(query: str, k: int = 5, threshold: float = 20.0) -> str:
 
     context = "\n\n".join(context_parts)
 
-    return response_generator.generate_response(
+    response =  response_generator.generate_response(
         query=query,
         context=context
     )
-
-
-if __name__ == "__main__":
-    question = input("Enter the question: ")
-    answer = ask_question(question)
-    print(answer)
+    
+    if response.startswith("I don't"):
+        return None
+    else:
+        return response
