@@ -122,6 +122,7 @@ You will receive:
 
 Your job is to analyze the relationship and return:
 
+1) Description - What does the graph represents
 1) Importance — why this relationship matters in a business/analytical context
 2) Trend — what pattern is observed in the values (growth, decline, concentration, outliers, ranking behavior, etc.)
 3) Insight Style — concise, factual, no speculation, no visualization code
