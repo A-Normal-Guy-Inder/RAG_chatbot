@@ -16,7 +16,7 @@ def data_retriever(question : str):
         llm=model,
         toolkit=toolkit,
         verbose=True,
-        max_iterations=5,
+        max_iterations=8,
         top_k=10,
     )
 

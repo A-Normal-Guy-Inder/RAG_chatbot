@@ -3,6 +3,8 @@ from langchain_core.messages import HumanMessage
 import re
 import io
 import base64
+import matplotlib
+matplotlib.use("Agg") 
 import matplotlib.pyplot as plt
 
 class GraphGenerator:
@@ -136,6 +138,9 @@ OUTPUT FORMAT:
 
 Title:
 <adequate title>
+
+Description:
+<adequate description about what the graph is about>
 
 Importance:
 <short explanation>
