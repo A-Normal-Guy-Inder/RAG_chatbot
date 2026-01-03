@@ -15,7 +15,9 @@ def data_retriever(question : str):
     agentdb = create_sql_agent(
         llm=model,
         toolkit=toolkit,
-        verbose=True
+        verbose=True,
+        max_iterations=5,
+        top_k=10,
     )
 
     sqlAnswer= agentdb.invoke(question)
