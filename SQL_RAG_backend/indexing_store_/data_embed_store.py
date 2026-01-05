@@ -48,5 +48,3 @@ def embed_store(chunks, batch_size=50):
         print(f"❌ ERROR during embedding: {e}")
         return {"success": False, "error": str(e)}
     
-if __name__ == "__main__":
-    print(getSqlUrl())

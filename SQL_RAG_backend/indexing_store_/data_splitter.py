@@ -42,7 +42,7 @@ def split_docs(docs):
     print(f"🔹 Input documents: {len(docs)}")
 
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,          # ≈130 words
+        chunk_size=800,
         chunk_overlap=100,
         separators=["\n\n", "\n", ". ", " "],
         add_start_index=True,
